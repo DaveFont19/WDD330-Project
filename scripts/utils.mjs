@@ -51,8 +51,11 @@ export async function loadTemplate(path) {
     return template;
 }
 //It calls the classes and call a function to render the heather
-export async function loadHeader() {
+export async function loadHeaderFooter() {
     const headerTemplate = await loadTemplate("./public/partials/header.html");
+    const footerTemplate = await loadTemplate("./public/partials/footer.html");
     const headerElement = document.querySelector(".header");
+    const footerElement = document.querySelector(".footer");
     renderWithTemplate(headerTemplate, headerElement);
+    renderWithTemplate(footerTemplate, footerElement)
 }

@@ -1,10 +1,10 @@
-import { getDataAnime, randomPick, getDataMarvel, loadHeader } from "./utils.mjs";
+import { getDataAnime, randomPick, getDataMarvel, loadHeaderFooter } from "./utils.mjs";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 //Load header and footer
 try {
-    await loadHeader();
+    await loadHeaderFooter();
     const hamburgerElement = document.getElementById('myButton');
     const navElement = document.querySelector('#animate');
     //It controls the menu to display it when is clicked it
@@ -35,9 +35,10 @@ upcomingAnime.then(item => {
     figure.innerHTML = `
     <a href="./card/index.html?card=canime-${promotion.mal_id}"">
         <h2> <span class="new">NEW!</span> <br>${promotion.title_english} - <strong>${promotion.title_japanese}</strong></h2>
-        <img src="${promotion.images.webp.image_url}"/>
+        <img src="${promotion.images.webp.image_url}" loading="lazy"/>
         <figcaption>${promotion.rating}</figcaption>
         </a>`;
+        
     div.appendChild(figure);
 })
 
@@ -66,9 +67,10 @@ recommendationsAnime.then(async anime => {
                 const figure = document.createElement('figure');
                 figure.innerHTML = `<a href="./card/index.html?card=anime-${item.data.mal_id}">
                 <h2>${item.data.title_english} - <strong>${item.data.title_japanese}</strong></h2>
-                <img src="${item.data.images.webp.image_url}"/>
+                <img src="${item.data.images.webp.image_url}" loading="lazy"/>
                 <figcaption>${item.data.rating}</figcaption>
                 </a>`;
+                figure.classList = `card card${counter + 1}`
                 div.appendChild(figure);
                 counter++
             }
@@ -90,7 +92,7 @@ marvel.then(async data => {
         figure.innerHTML = `
         <a href="./card/index.html?card=marvel-${marvelComics.id}">
             <h2>${marvelComics.title}</h2>
-            <img src="${marvelComics.images[0].path}/portrait_uncanny.jpg"/>
+            <img src="${marvelComics.images[0].path}/portrait_uncanny.jpg" loading="lazy"/>
         </a>`;
         if (index == 0) {
             divProm.appendChild(figure)
