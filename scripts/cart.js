@@ -1,5 +1,5 @@
 import { loadHeaderFooter, getParam, getDataAnime, getDataMarvel } from "./utils.mjs";
-import { cardTemplate } from "./anime.mjs";
+import { cardTemplate,extraInformationAnime } from "./anime.mjs";
 
 //Load header and footer
 try {
@@ -22,13 +22,10 @@ if (data[0] == "anime") {
     const anime = getDataAnime(`anime/${data[1]}`)
     anime.then(anime => {
         const data = anime.data;
-        const div = document.querySelector('.cart');
-        const p = document.createElement('p');
-        const figure = cardTemplate(data)
-        figure.classList = `card`;
+        const div = document.querySelector('.card');
+        const figure = cardTemplate(data);
+        const p = extraInformationAnime(data);
         div.appendChild(figure);
-        p.innerHTML = `<strong>Genre(s): </strong> ${data.genres[0].name}<br><strong>Year: </strong> ${data.year? data.year : "Unknow"}<br><strong>Producer(s): </strong> ${data.producers.length >= 1 ? data.producers[0].name : "Unknow"}, ${data.producers.length > 1? data.producers[1].name : "" } <br>
-        <strong>Studio(s): </strong> ${ data.studios.length >= 1? data.studios[0].name : "Unknow"}`;
         div.appendChild(p);
     })
 } else {

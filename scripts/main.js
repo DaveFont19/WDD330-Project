@@ -1,5 +1,5 @@
 import { getDataAnime, randomPick, getDataMarvel, loadHeaderFooter } from "./utils.mjs";
-import { cardTemplate } from "./anime.mjs";
+import { cardTemplateURL } from "./anime.mjs";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -65,7 +65,7 @@ recommendationsAnime.then(async anime => {
 
             //This conditional filter the animes +18, and if the counter is 4 it finishes
             if (item.data.rating.charAt(0) !== "R" && counter !== 4) {
-               const figure = cardTemplate(item.data)
+               const figure = cardTemplateURL(item.data)
                 figure.classList = `card card${counter + 1}`
                 div.appendChild(figure);
                 counter++
