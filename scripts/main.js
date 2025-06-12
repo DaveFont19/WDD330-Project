@@ -1,6 +1,6 @@
 import {randomPick, loadHeaderFooter } from "./utils.mjs";
 import { cardTemplateAnimeURL, getDataAnime } from "./anime.mjs";
-import { getDataMarvel, cartTemplateMarvelURL } from "./marvel.mjs";
+import { getDataMarvel, cardTemplateMarvelURL } from "./marvel.mjs";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -86,8 +86,8 @@ marvel.then(async data => {
         do { marvelComics = randomPick(data.data.results); }
         //It verifies if the comic has images if not it repeat it
         while (marvelComics.images.length == 0);
-        //Call the template for the marvel carts
-        const figure = cartTemplateMarvelURL(marvelComics)
+        //Call the template for the marvel cards
+        const figure = cardTemplateMarvelURL(marvelComics)
         if (index == 0) {
             divProm.appendChild(figure)
         } else{

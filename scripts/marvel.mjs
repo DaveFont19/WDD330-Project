@@ -40,8 +40,8 @@ export async function getDataMarvelID(param) {
         throw error;
     }
 }
-//Function to provide a template for the marvel carts
-export function cartTemplateMarvelURL(marvelComic) {
+//Function to provide a template for the marvel cards
+export function cardTemplateMarvelURL(marvelComic) {
     const figure = document.createElement('figure');
     figure.innerHTML = `
         <a href="./card/index.html?card=marvel-${marvelComic.id}">
@@ -50,7 +50,7 @@ export function cartTemplateMarvelURL(marvelComic) {
         </a>`;
     return figure
 }
-export function cartTemplateMarvel(marvelComic) {
+export function cardTemplateMarvel(marvelComic) {
     const figure = document.createElement('figure');
     figure.innerHTML = `
             <h2>${marvelComic.title}</h2>

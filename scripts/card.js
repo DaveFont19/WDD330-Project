@@ -1,6 +1,6 @@
 import { loadHeaderFooter, getParam  } from "./utils.mjs";
 import { cardTemplateAnime, getDataAnime } from "./anime.mjs";
-import { getDataMarvelID, cartTemplateMarvel } from "./marvel.mjs";
+import { getDataMarvelID, cardTemplateMarvel } from "./marvel.mjs";
 
 //Load header and footer
 try {
@@ -31,7 +31,7 @@ if (data[0] == "anime") {
 } else {
     const marvel = getDataMarvelID(data[1]);
     marvel.then(marvel =>{
-        const figure = cartTemplateMarvel(marvel.data.results[0]);
+        const figure = cardTemplateMarvel(marvel.data.results[0]);
         div.appendChild(figure);
     })
 }
