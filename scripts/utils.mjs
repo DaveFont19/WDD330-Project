@@ -52,10 +52,17 @@ export async function loadTemplate(path) {
 }
 //It calls the classes and call a function to render the heather
 export async function loadHeaderFooter() {
-    const headerTemplate = await loadTemplate("./public/partials/header.html");
-    const footerTemplate = await loadTemplate("./public/partials/footer.html");
+    const headerTemplate = await loadTemplate("/public/partials/header.html");
+    const footerTemplate = await loadTemplate("/public/partials/footer.html");
     const headerElement = document.querySelector(".header");
     const footerElement = document.querySelector(".footer");
     renderWithTemplate(headerTemplate, headerElement);
-    renderWithTemplate(footerTemplate, footerElement)
+    renderWithTemplate(footerTemplate, footerElement);
+}
+//Get a param and it takes the information from the URL and it returns data
+export function getParam(param) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const getData = urlParams.get(param);
+    return getData;
 }

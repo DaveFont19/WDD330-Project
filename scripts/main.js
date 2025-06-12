@@ -1,4 +1,5 @@
 import { getDataAnime, randomPick, getDataMarvel, loadHeaderFooter } from "./utils.mjs";
+import { cardTemplate } from "./anime.mjs";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -33,7 +34,7 @@ upcomingAnime.then(item => {
     //Create the template and insert it in the html file
     const figure = document.createElement('figure');
     figure.innerHTML = `
-    <a href="./card/index.html?card=canime-${promotion.mal_id}"">
+    <a href="./card/index.html?card=anime-${promotion.mal_id}"">
         <h2> <span class="new">NEW!</span> <br>${promotion.title_english} - <strong>${promotion.title_japanese}</strong></h2>
         <img src="${promotion.images.webp.image_url}" loading="lazy"/>
         <figcaption>${promotion.rating}</figcaption>
@@ -64,12 +65,7 @@ recommendationsAnime.then(async anime => {
 
             //This conditional filter the animes +18, and if the counter is 4 it finishes
             if (item.data.rating.charAt(0) !== "R" && counter !== 4) {
-                const figure = document.createElement('figure');
-                figure.innerHTML = `<a href="./card/index.html?card=anime-${item.data.mal_id}">
-                <h2>${item.data.title_english} - <strong>${item.data.title_japanese}</strong></h2>
-                <img src="${item.data.images.webp.image_url}" loading="lazy"/>
-                <figcaption>${item.data.rating}</figcaption>
-                </a>`;
+               const figure = cardTemplate(item.data)
                 figure.classList = `card card${counter + 1}`
                 div.appendChild(figure);
                 counter++
