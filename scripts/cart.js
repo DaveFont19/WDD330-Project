@@ -1,5 +1,6 @@
-import { loadHeaderFooter, getParam, getDataAnime, getDataMarvel } from "./utils.mjs";
-import { cardTemplate,extraInformationAnime } from "./anime.mjs";
+import { loadHeaderFooter, getParam  } from "./utils.mjs";
+import { cardTemplateAnime, getDataAnime } from "./anime.mjs";
+import { getDataMarvelID, cartTemplateMarvel } from "./marvel.mjs";
 
 //Load header and footer
 try {
@@ -17,17 +18,20 @@ try {
 //Recibes the information from the URL
 const param = getParam('card');
 const data = param.split('-');
+
+const div = document.querySelector('.card');
 //Conditional to know if is anime or marvel
 if (data[0] == "anime") {
     const anime = getDataAnime(`anime/${data[1]}`)
     anime.then(anime => {
         const data = anime.data;
-        const div = document.querySelector('.card');
-        const figure = cardTemplate(data);
-        const p = extraInformationAnime(data);
+        const figure = cardTemplateAnime(data);
         div.appendChild(figure);
-        div.appendChild(p);
     })
 } else {
-    console.log("es marvel" + data[0]);
+    const marvel = getDataMarvelID(data[1]);
+    marvel.then(marvel =>{
+        const figure = cartTemplateMarvel(marvel.data.results[0]);
+        div.appendChild(figure);
+    })
 }

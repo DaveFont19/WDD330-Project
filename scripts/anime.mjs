@@ -1,12 +1,33 @@
+//It call de Anime API and returns a promise
+export async function getDataAnime(request) {
+    try {
+        //it makes the calls to the API, after "v4/" it can be different calls to receive specific data
+        const response = await fetch(`https://api.jikan.moe/v4/${request}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        return result;
+
+    } catch (error) {
+        throw error;
+    }
+}
 //Cardtemplate displays the anime card 
-export function cardTemplate(anime) {
+export function cardTemplateAnime(anime) {
     const figure = document.createElement('figure');
     figure.innerHTML = `
         <h2>${anime.title_english} - <strong>${anime.title_japanese}</strong></h2>
-        <img src="${anime.images.webp.image_url}" loading="lazy"/>`;
+        <img src="${anime.images.webp.image_url}" loading="lazy"/>
+        <p><strong>Rating: </strong> ${anime.rating}<br><strong>Year: </strong> ${anime.year ? anime.year : "Unknow"}<br>
+    <strong>Genre(s): </strong> ${displayArray(anime.genres)}<br>
+    <strong>Producer(s): </strong> ${anime.producers.length ? displayArray(anime.producers) : "Unknow"}<br>
+    <strong>Studio(s): </strong> ${anime.studios.length ? displayArray(anime.studios) : "Unknow"}<br>
+    <strong>Theme(s): </strong> ${anime.themes.length ? displayArray(anime.themes) : "Unknow"}<br>
+    <strong>Trailer: </strong> ${anime.trailer ? `<a href="${anime.trailer.url}">${anime.trailer.url}</a>` : "Unknow"}</p>`;
     return figure;
 }
-export function cardTemplateURL(anime) {
+export function cardTemplateAnimeURL(anime) {
     const figure = document.createElement('figure');
     figure.innerHTML = `
     <a href="./card/index.html?card=anime-${anime.mal_id}">
@@ -15,17 +36,6 @@ export function cardTemplateURL(anime) {
         <figcaption>${anime.rating}</figcaption>
     </a>`;
     return figure;
-}
-//It displays the additional information about anime in the card
-export function extraInformationAnime(data) {
-    const p = document.createElement('p');
-    p.innerHTML = `<strong>Rating: </strong> ${data.rating}<br><strong>Year: </strong> ${data.year ? data.year : "Unknow"}<br>
-    <strong>Genre(s): </strong> ${displayArray(data.genres)}<br>
-    <strong>Producer(s): </strong> ${data.producers.length ? displayArray(data.producers) : "Unknow"}<br>
-    <strong>Studio(s): </strong> ${data.studios.length ? displayArray(data.studios) : "Unknow"}<br>
-    <strong>Theme(s): </strong> ${data.themes.length ? displayArray(data.themes) : "Unknow"}<br>
-    <strong>Trailer: </strong> ${data.trailer ? `<a href="${data.trailer.url}">${data.trailer.url}</a>` : "Unknow"}`;
-    return p;
 }
 //It returns a new string element to displays it
 function displayArray(element) {

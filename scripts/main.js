@@ -1,5 +1,6 @@
-import { getDataAnime, randomPick, getDataMarvel, loadHeaderFooter } from "./utils.mjs";
-import { cardTemplateURL } from "./anime.mjs";
+import {randomPick, loadHeaderFooter } from "./utils.mjs";
+import { cardTemplateAnimeURL, getDataAnime } from "./anime.mjs";
+import { getDataMarvel, cartTemplateMarvelURL } from "./marvel.mjs";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -65,7 +66,7 @@ recommendationsAnime.then(async anime => {
 
             //This conditional filter the animes +18, and if the counter is 4 it finishes
             if (item.data.rating.charAt(0) !== "R" && counter !== 4) {
-               const figure = cardTemplateURL(item.data)
+               const figure = cardTemplateAnimeURL(item.data)
                 figure.classList = `card card${counter + 1}`
                 div.appendChild(figure);
                 counter++
@@ -79,17 +80,14 @@ marvel.then(async data => {
     const divSugg = document.querySelector('.marvel-suggestion');
     //A loop for render 5 cards
     for (let index = 0; index < 5; index++) {
-        const figure = document.createElement('figure')
+       
         //Create a variable to use in the loop and later use it
         let marvelComics = ""
         do { marvelComics = randomPick(data.data.results); }
         //It verifies if the comic has images if not it repeat it
         while (marvelComics.images.length == 0);
-        figure.innerHTML = `
-        <a href="./card/index.html?card=marvel-${marvelComics.id}">
-            <h2>${marvelComics.title}</h2>
-            <img src="${marvelComics.images[0].path}/portrait_uncanny.jpg" loading="lazy"/>
-        </a>`;
+        //Call the template for the marvel carts
+        const figure = cartTemplateMarvelURL(marvelComics)
         if (index == 0) {
             divProm.appendChild(figure)
         } else{

@@ -257,4 +257,5 @@ main div.card figure {
 }
 main div.card figure img{
     width: 250px;
+    margin: 10px;
 }
