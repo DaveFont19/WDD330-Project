@@ -17,10 +17,10 @@ try {
 const main = document.querySelector("main")
 //Recibes the information from the URL
 const param = getParam('category');
-if(param == "anime"){
-    main.innerHTML=`<h1>Anime List</h1>`
+if (param == "anime") {
+    main.innerHTML = `<h1>Anime List</h1>`
     const upcomingAnime = getDataAnime(randomPick(callsArray));
-    upcomingAnime.then(anime =>{
+    upcomingAnime.then(anime => {
         const div = document.createElement('div');
         const less18 = anime.data.filter(checkRating);
         less18.forEach(element => {
@@ -29,6 +29,6 @@ if(param == "anime"){
         });
         main.appendChild(div);
     })
-}else{
+} else {
     main.innerHTML = `${param}`;
 }
