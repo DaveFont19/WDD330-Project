@@ -1,5 +1,5 @@
-import {randomPick, loadHeaderFooter } from "./utils.mjs";
-import { cardTemplateAnimeURL, getDataAnime } from "./anime.mjs";
+import { randomPick, loadHeaderFooter } from "./utils.mjs";
+import { cardTemplateAnimeURL, getDataAnime, checkRating } from "./anime.mjs";
 import { getDataMarvel, cardTemplateMarvelURL } from "./marvel.mjs";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -26,12 +26,10 @@ const marvel = getDataMarvel();
 //Use the promise that is stored in upcomingAnime
 upcomingAnime.then(item => {
     const div = document.querySelector('.anime-promotion');
-    let promotion = ""
-    //Loop to recibe an anime that is not +18
-    do {
-        promotion = randomPick(item.data);
-    }
-    while (promotion.rating.charAt(0) == "R");
+    //Filter to recibe an anime that is not +18
+    const newList = item.data.filter(checkRating);
+    //Pick a random anime
+    const promotion = randomPick(newList);
     //Create the template and insert it in the html file
     const figure = document.createElement('figure');
     figure.innerHTML = `
@@ -40,7 +38,7 @@ upcomingAnime.then(item => {
         <img src="${promotion.images.webp.image_url}" loading="lazy"/>
         <figcaption>${promotion.rating}</figcaption>
         </a>`;
-        
+
     div.appendChild(figure);
 })
 
@@ -65,8 +63,8 @@ recommendationsAnime.then(async anime => {
         newAnime1.then(item => {
 
             //This conditional filter the animes +18, and if the counter is 4 it finishes
-            if (item.data.rating.charAt(0) !== "R" && counter !== 4) {
-               const figure = cardTemplateAnimeURL(item.data)
+            if (item.data.rating !== "R+ - Mild Nudity" && counter !== 4) {
+                const figure = cardTemplateAnimeURL(item.data)
                 figure.classList = `card card${counter + 1}`
                 div.appendChild(figure);
                 counter++
@@ -80,7 +78,7 @@ marvel.then(async data => {
     const divSugg = document.querySelector('.marvel-suggestion');
     //A loop for render 5 cards
     for (let index = 0; index < 5; index++) {
-       
+
         //Create a variable to use in the loop and later use it
         let marvelComics = ""
         do { marvelComics = randomPick(data.data.results); }
@@ -90,8 +88,8 @@ marvel.then(async data => {
         const figure = cardTemplateMarvelURL(marvelComics)
         if (index == 0) {
             divProm.appendChild(figure)
-        } else{
-             divSugg.appendChild(figure)
+        } else {
+            divSugg.appendChild(figure)
         }
 
     }

@@ -20,16 +20,17 @@ header {
     color: white;
 }
 
-header div img#comic-icon {
+header a img#comic-icon {
     width: 50px;
 }
 
-header div.logo-space {
+header a.logo-space {
     grid-column: 1 /3;
-    ;
+    text-decoration: none;
     display: flex;
     align-items: center;
     font-size: 13px;
+    color: white;
 }
 
 nav {
@@ -53,6 +54,7 @@ nav.open {
 
 #myButton::before {
     content: "\2630";
+    color: white;
 }
 
 #myButton {
@@ -68,6 +70,7 @@ nav.open {
 
 #myButton.open::before {
     content: "X";
+    color: white;
 }
 
 /* Main */
@@ -258,4 +261,31 @@ main div.card figure {
 main div.card figure img{
     width: 250px;
     margin: 10px;
+}
+/* Style comicsList page */
+main.comicsList div figure{
+    background-color: var(--background-anime);
+    margin: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+main.comicsList div figure a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+    color: var(--text-anime);
+    text-decoration: none;
+}
+main.comicsList div figure:hover{
+    background-color: #810c12;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s;
+}
+main.comicsList div figure:hover a{
+    color: white;
+}
+main.comicsList div figure img{
+    width: 200px;
 }
