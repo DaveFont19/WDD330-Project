@@ -50,6 +50,7 @@ export function cardTemplateMarvelURL(marvelComic) {
         </a>`;
     return figure
 }
+//Provides the details template
 export function cardTemplateMarvel(marvelComic) {
     const figure = document.createElement('figure');
     figure.innerHTML = `
@@ -60,4 +61,9 @@ export function cardTemplateMarvel(marvelComic) {
             <strong>Synapse: </strong>${marvelComic.description != 0? marvelComic.description: "Unknow"}<br>
             <strong>Price: </strong> $${marvelComic.prices[0].price}</p>`;
     return figure
+}
+//Choose a random element from an array and return it
+export function random(data) {
+    const number = Math.floor(Math.random() * data.length);
+    return number;
 }

@@ -26,9 +26,10 @@ if (data[0] == "anime") {
     anime.then(anime => {
         const data = anime.data;
         const figure = cardTemplateAnime(data);
-        const p = detailsAnime(data)
+        const p = detailsAnime(data);
+        figure.appendChild(p);
         div.appendChild(figure);
-        div.appendChild(p);
+        
     })
 } else {
     const marvel = getDataMarvelID(data[1]);
