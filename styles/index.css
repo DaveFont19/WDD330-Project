@@ -301,6 +301,12 @@ main.comicsList div figure:hover a {
 main.comicsList div figure img {
     width: 200px;
 }
+/* Register Page */
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
 
 @media screen and (min-width: 481px) {
 
@@ -380,14 +386,16 @@ main.comicsList div figure img {
         grid-column: 2 / 3;
         font-size: 15px;
     }
-/* Style comicsList page */
-main.comicsList div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+
+    /* Style comicsList page */
+    main.comicsList div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+
     /* Home Page */
     main.home {
         display: grid;
@@ -413,7 +421,8 @@ main.comicsList div {
     section.marvel-section {
         padding-bottom: 50px;
     }
-        /* Card Details Page */
+
+    /* Card Details Page */
     main div.card figure {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -431,11 +440,13 @@ main.comicsList div {
         grid-column: 2 / 3;
         font-size: 15px;
     }
-/* Style comicsList page */
-main.comicsList div {
-    grid-template-columns: repeat(3, 1fr);
-}
-main.comicsList div figure{
-    margin: 20px;
-}
+
+    /* Style comicsList page */
+    main.comicsList div {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    main.comicsList div figure {
+        margin: 20px;
+    }
 }
