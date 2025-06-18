@@ -46,7 +46,7 @@ if (myInfo.get('form') == 'sign-up') {
     //We verify if there is a similar userName 
     const condition = users.filter(verifyStorage);
     if (condition.length > 0) {
-        console.log("Ya existe un usuario con ese nombre");
+        section.innerHTML = `<p>We aer very Sorry the ${user.userName} already exists</p>`
     } else {
         users.push(user);
         //We store the array in the localStorage
@@ -65,7 +65,7 @@ else if (myInfo.get('form') == 'log-in') {
         section.innerHTML = user.welcomeMessage(session[0])
         user.logout();
     } else {
-        console.log("Contraseña incorrecta");
+        section.innerHTML = `<p>Weaer very Sorry but the User Name or Password is Incorrect</p>`
     }
 }
 //If the user enter to the page without completing a form
