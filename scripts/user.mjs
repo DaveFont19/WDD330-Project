@@ -9,6 +9,7 @@ export default class User {
         this.description = description
         this.favorite = [];
     }
+    //It displays a welcome message for the user
     welcomeMessage(object) {
        return `
          <h1 class="welcome-title">Welcome ${object.userName} to ComicVerse!</h1>
@@ -21,6 +22,7 @@ export default class User {
             </button>
         `;
     }
+    //It handle the log out when the lcient click the button
     logout(){
             document.querySelector('.logout-button').addEventListener('click', () => {
             localStorage.removeItem('sessionActive');

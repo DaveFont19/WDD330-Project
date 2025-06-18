@@ -39,7 +39,7 @@ export function getParam(param) {
     const getData = urlParams.get(param);
     return getData;
 }
-//It renders the log in template
+//It renders the log in template for Register page
 export function logInTemplate() {
     const template = ` <h1>Log In Now!</h1>
                         <form method="get" action="/profile.html">
@@ -52,7 +52,7 @@ export function logInTemplate() {
                         </form>
                         <p>Haven't you registered yet? <button type="button" class="button-sign">Sign Up</button></p>`;
     return template;
-}
+} //It renders the log in template for Profile page
 export function logInTemplateProfile(){
      const template = ` <h1>Log In Now!</h1>
                         <form method="get" action="/profile.html">

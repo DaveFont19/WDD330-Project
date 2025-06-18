@@ -12,16 +12,17 @@ try {
 } catch (error) {
     console.log(error);
 }
+//We recibe the tag elements
 const section = document.querySelector('.log-in');
 const dialog = document.querySelector('.dialog-sign');
-
+//this handle the display form
 document.querySelector('.button-log').addEventListener('click', ()=>{
     section.classList.remove('hide');
     section.classList.add('open');
     dialog.classList.remove('open');
     dialog.classList.add('hide');
 })
-
+//this handle the display form
 document.querySelector('.log-in').innerHTML = logInTemplate();
 document.querySelector('.button-sign').addEventListener('click', ()=>{
     

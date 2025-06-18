@@ -23,6 +23,7 @@ const div = document.querySelector('.card');
 //Conditional to know if is anime or marvel
 if (data[0] == "anime") {
     const anime = getDataAnime(`anime/${data[1]}`)
+    //Render the anime Card
     anime.then(anime => {
         const data = anime.data;
         const figure = cardTemplateAnime(data);
@@ -34,6 +35,7 @@ if (data[0] == "anime") {
 } else {
     const marvel = getDataMarvelID(data[1]);
     marvel.then(marvel =>{
+        //Render the marvel card
         const figure = cardTemplateMarvel(marvel.data.results[0]);
         div.appendChild(figure);
     })

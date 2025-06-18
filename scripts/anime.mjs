@@ -21,7 +21,7 @@ export function cardTemplateAnime(anime) {
         <img src="${anime.images.webp.image_url}" loading="lazy"/>`;
     return figure;
 }
-
+//We return a template for details card
 export function detailsAnime(anime) {
     const p = document.createElement('p');
     p.innerHTML = `<strong>Rating: </strong> ${anime.rating? anime.rating : "Unknow"}<br><strong>Year: </strong> ${anime.year ? anime.year : "Unknow"}<br>
@@ -32,6 +32,7 @@ export function detailsAnime(anime) {
     <strong>Trailer: </strong> ${anime.trailer ? `<a href="${anime.trailer.url}">${anime.trailer.url}</a>` : "Unknow"} `;
     return p;
 }
+//We return a template for details card but with a link
 export function cardTemplateAnimeURL(anime) {
     const figure = document.createElement('figure');
     figure.innerHTML = `
