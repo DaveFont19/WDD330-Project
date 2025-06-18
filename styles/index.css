@@ -82,7 +82,7 @@ nav.open {
 /*home  Main */
 
 main section.anime-section,
-main section.marvel-section {
+main section.marvel-section, .about-us {
     display: flex;
     flex-direction: column;
     align-items: center;
