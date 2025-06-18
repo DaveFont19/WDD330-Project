@@ -5,6 +5,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/styles/index.css">
+        <link rel="stylesheet" href="/styles/larger.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+                rel="stylesheet">
         <script type="module" src="/scripts/register.js" defer></script>
         <title>Document</title>
 </head>
@@ -12,40 +17,33 @@
 <body class="exception">
         <header class="header"></header>
         <main class="register">
-                <section class="log-in open">
-                        <form action="GET">
-                                <label>User Name<input type="text" name="user-name" pattern="[A-Za-z\- ]{7,}"
-                                                title="Your username"></label>
-                                <label>Password<input type="password" name="password" required
-                                                title="The Password for your account"></label>
-                                <button type="submit">Log In</button>
-                        </form>
-                        <p>Have<button type="button" class="button-sign">Sign In</button></p>
-                </section>
-                <section class="dialog-sign hide">
+                <section class="dialog-sign open">
                         <h1>Sign In NOW!</h1>
-                        <form method="GET" action="thankyou.html">
-                                <label>First Name <input type="text" name="first" required autocomplete="given-name"
-                                                title="Your First Name"></label>
-                                <label>Last Name <input type="text" name="last" required autocomplete="family-name"
-                                                title="Your Last Name"></label>
-                                <label>User Name<input type="text" name="user-name" pattern="[A-Za-z\- ]{7,}"
+                        <form method="get" action="/profile.html">
+                                <label for="first-name">First Name: <input type="text" name="first-name" required
+                                                autocomplete="given-name" title="Your First Name"></label>
+                                <label for="last-name">Last Name <input type="text" name="last-name" required
+                                                autocomplete="family-name" title="Your Last Name"></label>
+                                <label for="user-name">User Name<input type="text" name="user-name"
                                                 title="Your username"></label>
-                                <label>Email <input type="email" name="email" required
+                                <label for="email">Email <input type="email" name="email" required
                                                 placeholder="davidfontes20@gmail.com" title="Your Email"
                                                 autocomplete="email"></label>
-                                <label>Cell Phone <input type="tel" name="phone" required autocomplete="tel"
+                                <label for="phone">Cell Phone <input type="tel" name="phone" required autocomplete="tel"
                                                 title="Your company Phone Number"></label>
                                 </label>
-                                <label>Password<input type="password" name="password" required
+                                <label for="password">Password<input type="password" name="password" required
                                                 title="The Password for your account"></label>
-                                <label for="description">Description
+                                <label for="description">Tell us about you
                                         <textarea name="description" id="description"
                                                 title="A breve description of your company"></textarea></label>
-                                <input type="hidden" name="timestamp" id="timestamp">
-                                <button type="submit">Sign In</button>
+                                <input type="text" hidden value="sign-up" name="form">
+                                <button type="submit" class="submit-sign">Sign Up</button>
                         </form>
-                        <button type="button" class="button-log">Log In</button>
+                        <p>Already have an account? <button type="button" class="button-log">Log In</button></p>
+                </section>
+                <section class="log-in hide">
+
                 </section>
                 <dialog class="dialog"></dialog>
         </main>

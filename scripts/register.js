@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, logInTemplate } from "./utils.mjs";
 //Load header and footer
 try {
     await loadHeaderFooter();
@@ -14,16 +14,19 @@ try {
 }
 const section = document.querySelector('.log-in');
 const dialog = document.querySelector('.dialog-sign');
+
+document.querySelector('.button-log').addEventListener('click', ()=>{
+    section.classList.remove('hide');
+    section.classList.add('open');
+    dialog.classList.remove('open');
+    dialog.classList.add('hide');
+})
+
+document.querySelector('.log-in').innerHTML = logInTemplate();
 document.querySelector('.button-sign').addEventListener('click', ()=>{
     
     dialog.classList.remove('hide');
     dialog.classList.add('open');
     section.classList.remove('open');
     section.classList.add('hide');
-})
-document.querySelector('.button-log').addEventListener('click', ()=>{
-    section.classList.remove('hide');
-    section.classList.add('open');
-    dialog.classList.remove('open');
-    dialog.classList.add('hide');
 })

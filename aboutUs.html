@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="/styles/larger.css">
+    <title>Document</title>
+</head>
+
+<body>
+<!-- Wrote this code here for do not create another file -->
+    <script type="module">
+        import { loadHeaderFooter } from "/scripts/utils.mjs";
+        try {
+            await loadHeaderFooter();
+            const hamburgerElement = document.getElementById('myButton');
+            const navElement = document.querySelector('#animate');
+            //It controls the menu to display it when is clicked it
+            hamburgerElement.addEventListener('click', () => {
+                navElement.classList.toggle('open');
+                hamburgerElement.classList.toggle('open');
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    </script>
+    <header class="header"></header>
+    <main class="register">
+        <section>
+        <p>Welcome to Comic Go — your ultimate destination for everything Marvel and anime!
+
+            At Comic Go, we’re more than just a website. We’re a passionate community of fans, collectors, and dreamers
+            who believe in the power of storytelling. Whether it’s through the epic battles of Marvel superheroes or the
+            emotional journeys of anime characters, we’re here to bring those incredible universes straight to you.<br>
+
+            🦸 What We Offer<br>
+            A massive selection of Marvel comics, from iconic classics to the latest releases.<br>
+
+            A growing library of anime content, including fan favorites, hidden gems, and new discoveries.<br>
+
+            Character spotlights, creator interviews, behind-the-scenes content, and curated recommendations.<br>
+
+            Access to exclusive merchandise, limited-edition collectibles, and special content only found at Comic
+            Go.<br>
+
+            🌟 Our Mission<br>
+            We believe that stories can inspire, empower, and connect people across the world. That’s why we created
+            Comic Go — a place where fans of Marvel and anime can explore their passions, discover new stories, and
+            relive the moments that made them fall in love with these worlds.<br>
+
+            Our mission is simple:<br>
+            To make comics and anime more accessible, more exciting, and more fun — for everyone.<br>
+
+            🤝 Join Our Community<br>
+            At Comic Go, you're not just a user — you’re part of a growing global fandom. Whether you're a lifelong
+            comic book reader or just getting started with anime, you'll find a welcoming space here to share your
+            thoughts, join the conversation, and celebrate what you love.<br>
+
+            We’re always updating our content, expanding our library, and listening to our users. So go ahead — explore,
+            engage, and enjoy the ride.<br>
+
+            Because here at Comic Go…<br>
+            Every story matters. Every fan belongs.<br>
+
+            🛡️ With great power comes great fandom.<br>
+            Welcome to Comic Go. Your adventure starts here.</p>
+        </section>
+    </main>
+    <footer class="footer"></footer>
+</body>
+
+</html>
