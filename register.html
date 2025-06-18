@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/index.css">
-    <script type="module" src="/scripts/register.js"></script>
-    <title>Document</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/index.css">
+        <script type="module" src="/scripts/register.js" defer></script>
+        <title>Document</title>
 </head>
-<body>
-     <header class="header"></header>
-        <main>
-        <h1>Register NOW!</h1>
-        <form method="GET" action="thankyou.html">
-            <label>First Name <input type="text" name="first" required autocomplete="given-name"
-                    title="Your First Name"></label>
-            <label>Last Name <input type="text" name="last" required autocomplete="family-name"
-                    title="Your Last Name"></label>
-            <label>User Name<input type="text" name="user-name"pattern="[A-Za-z\- ]{7,}"
-                    title="Your username"></label>
-            <label>Email <input type="email" name="email" required placeholder="davidfontes20@gmail.com"
-                    title="Your Email" autocomplete="email"></label>
-            <label>Cell Phone <input type="tel" name="phone" required autocomplete="tel"
-                    title="Your company Phone Number"></label>
-            </label>
-            <label>Password<input type="password" name="password" required title="The Password for your account"></label>
-            <label for="description">Description
-                <textarea name="description" id="description"
-                    title="A breve description of your company"></textarea></label>
-            <input type="hidden" name="timestamp" id="timestamp">
-            <button type="submit">Register Now</button>
-        </form>
-        <dialog id="membership-information"></dialog>
-    </main>
-    <footer class="footer"></footer>
+
+<body class="exception">
+        <header class="header"></header>
+        <main class="register">
+                <section class="log-in open">
+                        <form action="GET">
+                                <label>User Name<input type="text" name="user-name" pattern="[A-Za-z\- ]{7,}"
+                                                title="Your username"></label>
+                                <label>Password<input type="password" name="password" required
+                                                title="The Password for your account"></label>
+                                <button type="submit">Log In</button>
+                        </form>
+                        <p>Have<button type="button" class="button-sign">Sign In</button></p>
+                </section>
+                <section class="dialog-sign hide">
+                        <h1>Sign In NOW!</h1>
+                        <form method="GET" action="thankyou.html">
+                                <label>First Name <input type="text" name="first" required autocomplete="given-name"
+                                                title="Your First Name"></label>
+                                <label>Last Name <input type="text" name="last" required autocomplete="family-name"
+                                                title="Your Last Name"></label>
+                                <label>User Name<input type="text" name="user-name" pattern="[A-Za-z\- ]{7,}"
+                                                title="Your username"></label>
+                                <label>Email <input type="email" name="email" required
+                                                placeholder="davidfontes20@gmail.com" title="Your Email"
+                                                autocomplete="email"></label>
+                                <label>Cell Phone <input type="tel" name="phone" required autocomplete="tel"
+                                                title="Your company Phone Number"></label>
+                                </label>
+                                <label>Password<input type="password" name="password" required
+                                                title="The Password for your account"></label>
+                                <label for="description">Description
+                                        <textarea name="description" id="description"
+                                                title="A breve description of your company"></textarea></label>
+                                <input type="hidden" name="timestamp" id="timestamp">
+                                <button type="submit">Sign In</button>
+                        </form>
+                        <button type="button" class="button-log">Log In</button>
+                </section>
+                <dialog class="dialog"></dialog>
+        </main>
+        <footer class="footer"></footer>
 </body>
+
 </html>

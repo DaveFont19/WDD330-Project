@@ -12,3 +12,18 @@ try {
 } catch (error) {
     console.log(error);
 }
+const section = document.querySelector('.log-in');
+const dialog = document.querySelector('.dialog-sign');
+document.querySelector('.button-sign').addEventListener('click', ()=>{
+    
+    dialog.classList.remove('hide');
+    dialog.classList.add('open');
+    section.classList.remove('open');
+    section.classList.add('hide');
+})
+document.querySelector('.button-log').addEventListener('click', ()=>{
+    section.classList.remove('hide');
+    section.classList.add('open');
+    dialog.classList.remove('open');
+    dialog.classList.add('hide');
+})
